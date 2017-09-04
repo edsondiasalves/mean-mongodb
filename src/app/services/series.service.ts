@@ -22,7 +22,21 @@ export class SeriesService {
         ]
     }
 
-    includeSerie(serie: Serie): boolean{
+    getSerieById(id: number): Serie {
+        return {
+            id: 2,
+            name: "Dexter",
+            description: "Um cara brabo que mata o povo ruim",
+            year: 2008,
+            rating: 9.6
+        }
+    }
+
+    includeSerie(serie: Serie): boolean {
+        return true;
+    }
+
+    deleteSerie(serie: Serie): boolean {
         return true;
     }
 }
