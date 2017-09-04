@@ -1,0 +1,21 @@
+<div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading">Séries Cadastradas</div>
+    <!-- Table -->
+    <table class="table">
+        <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th>Ano</th>
+            <th>Nota</th>
+        </tr>
+        <tr *ngFor="let serie of series">
+            <td>{{serie.id}}</td>
+            <td>{{serie.name}}</td>
+            <td>{{serie.description}}</td>
+            <td>{{serie.year}}</td>
+            <td>{{serie.rating}}</td>
+        </tr>
+    </table>
+</div>

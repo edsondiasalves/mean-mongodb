@@ -1,0 +1,41 @@
+<div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading">Incluir Nova Série</div>
+    <!-- Table -->
+    <div class="container">
+        <form>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-11 mb-6">
+                        <label for="name">Nome</label>
+                        <input type="text" class="form-control" name="name" placeholder="Nome da serie" [(ngModel)]="serie.name" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-11 mb-6">
+                        <label for="description">Descrição</label>
+                        <input type="text" class="form-control" name="description" placeholder="Uma série sobre...." [(ngModel)]="serie.description"
+                            required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="year">Ano</label>
+                        <input type="text" class="form-control" name="year" placeholder="2011" [(ngModel)]="serie.year" required>
+                    </div>
+                    <div class="col-md-5 mb-3">
+                        <label for="rating">Nota</label>
+                        <input type="text" class="form-control" name="rating" placeholder="9.8" [(ngModel)]="serie.rating" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2 mb-3">
+                        <br />
+                        <button class="btn btn-primary" (click)="includeSerie()"  type="submit">Cadastrar Série</button>
+                    </div>
+                </div>
+            </div>
+            <br />
+        </form>
+    </div>
+</div>
