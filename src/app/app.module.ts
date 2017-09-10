@@ -15,6 +15,7 @@ import { UpdateSeriesComponent } from "./series/update/update-series.component";
     BrowserModule,
     FormsModule,
     RouterModule.forRoot([
+        { path: '', component: ListSeriesComponent },
         { path: 'list', component: ListSeriesComponent },
         { path: 'include', component: IncludeSeriesComponent },
         { path: 'detail/:id', component: DetailSeriesComponent },

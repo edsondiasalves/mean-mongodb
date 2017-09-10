@@ -10,6 +10,7 @@
             <th>Ano</th>
             <th>Nota</th>
             <th></th>
+            <th></th>
         </tr>
         <tr *ngFor="let serie of series">
             <td>{{serie.id}}</td>
@@ -21,6 +22,11 @@
             <td>{{serie.description}}</td>
             <td>{{serie.year}}</td>
             <td>{{serie.rating}}</td>
+            <td>
+                <a href="update/{{serie.id}}">
+                    <span class="glyphicon glyphicon-pencil"></span>
+                </a>
+            </td>
             <td>
                 <span class="glyphicon glyphicon-trash"></span>
             </td>
