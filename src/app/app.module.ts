@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
 import { ListSeriesComponent } from "./series/list/list-series.component";
 import { IncludeSeriesComponent } from "./series/include/include-series.component";
 import { DetailSeriesComponent } from "./series/detail/detail-series.component";
+import { UpdateSeriesComponent } from "./series/update/update-series.component";
 
 @NgModule({
   imports: [
@@ -16,10 +17,11 @@ import { DetailSeriesComponent } from "./series/detail/detail-series.component";
     RouterModule.forRoot([
         { path: 'list', component: ListSeriesComponent },
         { path: 'include', component: IncludeSeriesComponent },
-        { path: 'detail', component: DetailSeriesComponent }
+        { path: 'detail/:id', component: DetailSeriesComponent },
+        { path: 'update/:id', component: UpdateSeriesComponent }
     ])
   ],
-  declarations: [AppComponent, ListSeriesComponent, IncludeSeriesComponent, DetailSeriesComponent],
+  declarations: [AppComponent, ListSeriesComponent, IncludeSeriesComponent, DetailSeriesComponent, UpdateSeriesComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

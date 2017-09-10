@@ -9,9 +9,12 @@ import { Serie } from "../../model/serie";
 })
 export class ListSeriesComponent {
   series: Serie[] = [];
-  
+
   constructor(private seriesService: SeriesService) {
+    this.getAllSeries();
+  }
+
+  getAllSeries(): void {
     this.series = this.seriesService.getAllSeries();
-    console.log(this.series);
   }
 }

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { SeriesService } from "../../services/series.service";
 import { Serie } from "../../model/serie";
+import { Router } from "@angular/router";
 
 @Component({
   selector: '',
@@ -9,14 +10,20 @@ import { Serie } from "../../model/serie";
 })
 export class IncludeSeriesComponent {
   serie: Serie = new Serie();
-  
-  constructor(private seriesService: SeriesService) {
-  }
 
-  includeSerie(){
+  constructor(
+    private seriesService: SeriesService,
+    private router: Router
+  ) { }
+
+  includeSerie(): void {
     let result = this.seriesService.includeSerie(this.serie);
-    if (result){
+    if (result) {
       this.serie = new Serie();
     }
+  }
+
+  goBack(): void {
+    this.router.navigate(["list"])
   }
 }

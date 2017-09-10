@@ -36,7 +36,11 @@ export class SeriesService {
         return true;
     }
 
-    deleteSerie(serie: Serie): boolean {
+    deleteSerie(id: number): boolean {
+        return true;
+    }
+
+    updateSerie(serie: Serie): boolean {
         return true;
     }
 }
