@@ -15,6 +15,10 @@ export class ListSeriesComponent {
   }
 
   getAllSeries(): void {
-    this.series = this.seriesService.getAllSeries();
+    this.seriesService
+      .getAllSeries()
+      .subscribe(series_ => {
+        this.series = series_;
+      })
   }
 }

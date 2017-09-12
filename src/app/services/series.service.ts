@@ -1,46 +1,38 @@
 import { Injectable } from '@angular/core';
 import { Serie } from "../model/serie";
+import { Http } from '@angular/http';
+import { Observable } from "rxjs";
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class SeriesService {
-    getAllSeries(): Serie[] {
-        return [
-            {
-                id: 1,
-                name: "Game Of Thrones",
-                description: "Umas pá de gente matando e querendo reinar",
-                year: 2011,
-                rating: 10
-            },
-            {
-                id: 2,
-                name: "Dexter",
-                description: "Um cara brabo que mata o povo ruim",
-                year: 2008,
-                rating: 9.6
-            }
-        ]
+
+    constructor(private http: Http) {
+
     }
 
-    getSerieById(id: number): Serie {
-        return {
-            id: 2,
-            name: "Dexter",
-            description: "Um cara brabo que mata o povo ruim",
-            year: 2008,
-            rating: 9.6
-        }
+    getAllSeries(): Observable<Serie[]> {
+        return this.http.get('/api/series/list')
+            .map(s => s.json());
     }
 
-    includeSerie(serie: Serie): boolean {
-        return true;
+    getSerieById(id: number): Observable<Serie> {
+        return this.http.get('/api/series/get/' + id)
+            .map(s => s.json());
     }
 
-    deleteSerie(id: number): boolean {
-        return true;
+    includeSerie(serie: Serie): Observable<boolean> {
+        return this.http.post('/api/series/insert', serie)
+            .map(s => s.json());
     }
 
-    updateSerie(serie: Serie): boolean {
-        return true;
+    deleteSerie(id: number): Observable<boolean> {
+        return this.http.post('/api/series/insert', id)
+        .map(s => s.json());
+    }
+
+    updateSerie(serie: Serie): Observable<boolean> {
+        return this.http.post('/api/series/insert', serie)
+        .map(s => s.json());
     }
 }

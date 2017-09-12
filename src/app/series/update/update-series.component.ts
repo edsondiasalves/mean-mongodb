@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { SeriesService } from "../../services/series.service";
 import { Serie } from "../../model/serie";
-import { Router } from "@angular/router";
+import { Router, ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: '',
@@ -12,15 +12,23 @@ export class UpdateSeriesComponent {
   serie: Serie = new Serie();
 
   constructor(private seriesService: SeriesService,
-    private router: Router) {
+    private router: Router,
+    private route: ActivatedRoute) {
     this.getSerie();
   }
 
   getSerie(): void {
-    let result: Serie = this.seriesService.getSerieById(this.serie.id);
-    if (result) {
-      this.serie = result;
-    }
+    this.route.params.subscribe(params => {
+      
+      if (!params.id){
+        this.goBack();
+      }
+
+      this.seriesService.getSerieById(params.id)
+        .subscribe(serie_ => {
+          this.serie = serie_;
+        });
+    });
   }
 
   goBack(): void {
@@ -28,9 +36,11 @@ export class UpdateSeriesComponent {
   }
 
   updateSerie(): void {
-    let result: boolean = this.seriesService.updateSerie(this.serie);
-    if (result) {
-      this.serie = new Serie();
-    }
+    this.seriesService.updateSerie(this.serie)
+      .subscribe(result => {
+        if (result) {
+          console.log('updated');
+        }
+      });
   }
 }

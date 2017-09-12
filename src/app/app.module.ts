@@ -1,5 +1,6 @@
-import { NgModule } from '@angular/core';
+import { NgModule, enableProdMode } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -10,10 +11,13 @@ import { IncludeSeriesComponent } from "./series/include/include-series.componen
 import { DetailSeriesComponent } from "./series/detail/detail-series.component";
 import { UpdateSeriesComponent } from "./series/update/update-series.component";
 
+enableProdMode();
+
 @NgModule({
   imports: [
     BrowserModule,
     FormsModule,
+    HttpModule,
     RouterModule.forRoot([
         { path: '', component: ListSeriesComponent },
         { path: 'list', component: ListSeriesComponent },

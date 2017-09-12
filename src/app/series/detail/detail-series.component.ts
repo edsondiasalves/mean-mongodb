@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { SeriesService } from "../../services/series.service";
 import { Serie } from "../../model/serie";
-import { Router } from "@angular/router";
+import { Router, ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: '',
@@ -13,16 +13,24 @@ export class DetailSeriesComponent {
 
   constructor(
     private seriesService: SeriesService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) {
     this.detailsSerie();
   }
 
   detailsSerie(): void {
-    let result: Serie = this.seriesService.getSerieById(this.serie.id);
-    if (result) {
-      this.serie = result;
-    }
+    this.route.params.subscribe(params => {
+
+      if (!params.id){
+        this.goBack();
+      }
+
+      this.seriesService.getSerieById(params.id)
+        .subscribe(serie_ => {
+          this.serie = serie_;
+        });
+    });
   }
 
   goBack(): void {
@@ -30,9 +38,11 @@ export class DetailSeriesComponent {
   }
 
   excludeSerie(): void {
-    let result: boolean = this.seriesService.deleteSerie(this.serie.id);
-    if (result) {
-      this.goBack();
-    }
+    this.seriesService.deleteSerie(this.serie.id)
+      .subscribe(result => {
+        if (result) {
+          this.goBack();
+        }
+      });
   }
 }

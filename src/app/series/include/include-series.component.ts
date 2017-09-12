@@ -17,10 +17,12 @@ export class IncludeSeriesComponent {
   ) { }
 
   includeSerie(): void {
-    let result = this.seriesService.includeSerie(this.serie);
-    if (result) {
-      this.serie = new Serie();
-    }
+    this.seriesService.includeSerie(this.serie)
+      .subscribe(result => {
+        if (result) {
+          this.serie = new Serie();
+        }
+      });
   }
 
   goBack(): void {

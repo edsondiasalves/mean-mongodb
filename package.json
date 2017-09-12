@@ -5,7 +5,8 @@
   "scripts": {
     "build": "tsc -p src/",
     "build:watch": "tsc -p src/ -w",
-    "serve": "lite-server -c=bs-config.json",
+    "serve_lite": "lite-server -c=bs-config.json",
+    "serve": "nodemon .\"server.js",
     "prestart": "npm run build",
     "start": "concurrently \"npm run build:watch\" \"npm run serve\""
   },
@@ -22,21 +23,24 @@
     "@angular/platform-browser-dynamic": "~4.3.4",
     "@angular/router": "~4.3.4",
     "angular-in-memory-web-api": "~0.3.0",
+    "body-parser": "^1.18.0",
     "bootstrap": "^3.3.7",
     "core-js": "^2.4.1",
+    "express": "^4.15.4",
     "jquery": "^3.1.1",
     "rxjs": "5.0.1",
     "systemjs": "0.19.40",
     "zone.js": "^0.8.4"
   },
   "devDependencies": {
+    "@types/node": "^6.0.46",
+    "canonical-path": "0.0.2",
     "concurrently": "^3.2.0",
     "lite-server": "^2.2.2",
-    "typescript": "~2.1.0",
-    "canonical-path": "0.0.2",
     "lodash": "^4.16.4",
+    "nodemon": "^1.12.0",
     "rimraf": "^2.5.4",
-    "@types/node": "^6.0.46"
+    "typescript": "~2.1.0"
   },
   "repository": {}
 }
