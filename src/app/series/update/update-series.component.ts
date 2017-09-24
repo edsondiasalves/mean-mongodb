@@ -20,11 +20,11 @@ export class UpdateSeriesComponent {
   getSerie(): void {
     this.route.params.subscribe(params => {
       
-      if (!params.id){
+      if (!params['id']){
         this.goBack();
       }
 
-      this.seriesService.getSerieById(params.id)
+      this.seriesService.getSerieById(params['id'])
         .subscribe(serie_ => {
           this.serie = serie_;
         });

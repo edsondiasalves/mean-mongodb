@@ -6,7 +6,7 @@
     "build": "tsc -p src/",
     "build:watch": "tsc -p src/ -w",
     "serve_lite": "lite-server -c=bs-config.json",
-    "serve": "nodemon .\"server.js",
+    "serve": "node server.js",
     "prestart": "npm run build",
     "start": "concurrently \"npm run build:watch\" \"npm run serve\""
   },
