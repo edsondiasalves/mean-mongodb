@@ -1,4 +1,4 @@
-# Exemplo MEAN
+# Example MEAN
 
 This repository is a example of a application that uses MEAN as principal technologies.
 This projects doesn't use angular CLI and other auto generate template code.
