@@ -35,13 +35,4 @@ export class DetailSeriesComponent {
   goBack(): void {
     this.router.navigate(["list"])
   }
-
-  excludeSerie(): void {
-    this.seriesService.deleteSerie(this.serie.id)
-      .subscribe(result => {
-        if (result) {
-          this.goBack();
-        }
-      });
-  }
 }

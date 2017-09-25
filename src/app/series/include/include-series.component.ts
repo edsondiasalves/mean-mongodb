@@ -20,7 +20,7 @@ export class IncludeSeriesComponent {
     this.seriesService.includeSerie(this.serie)
       .subscribe(result => {
         if (result) {
-          this.serie = new Serie();
+          this.goBack();
         }
       });
   }

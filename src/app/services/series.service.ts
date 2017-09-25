@@ -27,12 +27,12 @@ export class SeriesService {
     }
 
     deleteSerie(id: number): Observable<boolean> {
-        return this.http.post('/api/series/insert', id)
-        .map(s => s.json());
+        return this.http.post('/api/series/delete', { "id": id })
+            .map(s => s.json());
     }
 
     updateSerie(serie: Serie): Observable<boolean> {
-        return this.http.post('/api/series/insert', serie)
-        .map(s => s.json());
+        return this.http.post('/api/series/update', serie)
+            .map(s => s.json());
     }
 }

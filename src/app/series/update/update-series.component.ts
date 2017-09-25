@@ -19,8 +19,8 @@ export class UpdateSeriesComponent {
 
   getSerie(): void {
     this.route.params.subscribe(params => {
-      
-      if (!params['id']){
+
+      if (!params['id']) {
         this.goBack();
       }
 
@@ -39,7 +39,7 @@ export class UpdateSeriesComponent {
     this.seriesService.updateSerie(this.serie)
       .subscribe(result => {
         if (result) {
-          console.log('updated');
+          this.router.navigate(["list"]);
         }
       });
   }
