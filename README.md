@@ -10,11 +10,24 @@ Node.js, MongoDB
     
 ## Run this project
 
-Clone this repo into new project folder (e.g., `my-proj`).
+Clone this repo into new project folder
 ```shell
-git clone https://github.com/edsondiasalves/mean-mongodb  my-proj
-cd my-proj
+git clone https://github.com/edsondiasalves/mean-mongodb
 ```
 
+Get into the folder
+```shell
+cd mean-mongodb
+```
+
+Install dependencies
+```shell
 npm install
+```
+
+Start mongoDB server
+
+Start the app
+```shell
 npm start
+```
