@@ -8,7 +8,7 @@
     "serve_lite": "lite-server -c=bs-config.json",
     "serve": "node server.js",
     "prestart": "npm run build",
-    "start": "concurrently \"npm run build:watch\" \"npm run serve\""
+    "start": "concurrently \"npm run build:watch\" \"mongod.exe\" \"npm run serve\""
   },
   "keywords": [],
   "author": "",
